@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>PigCodeHelperLib</RootNamespace>
+    <TargetFrameworks>netcoreapp3.1;net5.0;net40;</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Seow Phong</Authors>
+    <Company>Seow Phong Studio</Company>
+    <Copyright>Copyright (c) 2021 Seow Phong</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>http://en.seowphong.com/oss/PigCodeHelper/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/PhongSeow/PigCodeHelper/tree/main/Src/DotNet/PigCodeHelperLib</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <Description>A code generation tool</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PigObjFsLib" Version="1.2.3" />
+    <PackageReference Include="PigToolsLib" Version="1.0.3" />
+  </ItemGroup>
+
+</Project>
