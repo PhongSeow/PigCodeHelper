@@ -1,5 +1,5 @@
 # PigCodeHelper
-#### [ÖÐÎÄÎÄµµ](https://github.com/PhongSeow/PigCodeHelper/blob/master/README.CN.md)
+#### [ä¸­æ–‡æ–‡æ¡£](https://github.com/PhongSeow/PigCodeHelper/blob/master/README.CN.md)
 PigCodeHelper is a code generation tool.
 
 ## ***Folders and files description***

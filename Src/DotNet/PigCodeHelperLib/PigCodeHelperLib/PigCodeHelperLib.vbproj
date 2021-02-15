@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <RootNamespace>PigCodeHelperLib</RootNamespace>
@@ -11,7 +11,7 @@
     <PackageProjectUrl>http://en.seowphong.com/oss/PigCodeHelper/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/PhongSeow/PigCodeHelper/tree/main/Src/DotNet/PigCodeHelperLib</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <Description>A code generation tool</Description>
+    <Description>A code generation tools.</Description>
   </PropertyGroup>
 
   <ItemGroup>
