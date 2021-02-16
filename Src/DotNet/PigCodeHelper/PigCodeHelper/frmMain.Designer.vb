@@ -27,6 +27,7 @@ Partial Class frmMain
         Me.btnEnumValue = New System.Windows.Forms.Button()
         Me.tbMain = New System.Windows.Forms.TextBox()
         Me.btnStop = New System.Windows.Forms.Button()
+        Me.btnClassValue = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'timMain
@@ -60,11 +61,21 @@ Partial Class frmMain
         Me.btnStop.Text = "结束"
         Me.btnStop.UseVisualStyleBackColor = True
         '
+        'btnClassValue
+        '
+        Me.btnClassValue.Location = New System.Drawing.Point(160, 12)
+        Me.btnClassValue.Name = "btnClassValue"
+        Me.btnClassValue.Size = New System.Drawing.Size(93, 23)
+        Me.btnClassValue.TabIndex = 4
+        Me.btnClassValue.Text = "获取类接口"
+        Me.btnClassValue.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(397, 480)
+        Me.Controls.Add(Me.btnClassValue)
         Me.Controls.Add(Me.btnStop)
         Me.Controls.Add(Me.tbMain)
         Me.Controls.Add(Me.btnEnumValue)
@@ -78,4 +89,5 @@ Partial Class frmMain
     Friend WithEvents btnEnumValue As Button
     Friend WithEvents tbMain As TextBox
     Friend WithEvents btnStop As Button
+    Friend WithEvents btnClassValue As Button
 End Class

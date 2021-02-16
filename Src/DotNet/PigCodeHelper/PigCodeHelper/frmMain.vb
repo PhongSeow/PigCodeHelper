@@ -1,11 +1,15 @@
 ﻿Imports PigCodeHelperLib
+Imports PigToolsLib
+
 Public Class frmMain
     Public CurrText As String
     Public FullText As String
     Public IsHeadBegin As Boolean
+    Dim oPigFunc As New PigFunc
     Public Enum emnDoWhat
         Unknow = 0
         GetEnumValue = 1    '获取枚举常量
+        GetClassValue = 2    '获取类接口
     End Enum
 
     Public DoWhat As emnDoWhat
@@ -52,6 +56,22 @@ Public Class frmMain
                     Me.CurrText = ""
                     Me.tbMain.Text = Me.FullText
                 End If
+            Case emnDoWhat.GetClassValue
+                Me.GetText()
+                If Me.CurrText <> "" Then
+                    If Mid(Me.CurrText, 1, 6) = "Class " And Me.IsHeadBegin = False Then
+                        Me.IsHeadBegin = True
+                        Me.FullText = Me.HelperApp.VB6ObjBrow2VBNetCode_ClassValue(HelperApp.enmConvWhat.Head, Me.CurrText)
+                    ElseIf Me.IsHeadBegin = True Then
+                        Dim strSubType As String = oPigFunc.GetStr(Me.CurrText, "", " ", False)
+                        Select Case strSubType
+                            Case "Property", "Function", "Event", "Sub"
+                                Me.FullText &= Me.HelperApp.VB6ObjBrow2VBNetCode_ClassValue(HelperApp.enmConvWhat.BodyItem, Me.CurrText)
+                        End Select
+                    End If
+                    Me.CurrText = ""
+                    Me.tbMain.Text = Me.FullText
+                End If
         End Select
     End Sub
 
@@ -74,10 +94,18 @@ Public Class frmMain
         Select Case Me.DoWhat
             Case emnDoWhat.GetEnumValue
                 Me.FullText &= Me.HelperApp.VB6ObjBrow2VBNetCode_EnumValue(HelperApp.enmConvWhat.Bottom, "")
+            Case emnDoWhat.GetClassValue
+                Me.FullText &= Me.HelperApp.VB6ObjBrow2VBNetCode_ClassValue(HelperApp.enmConvWhat.Bottom, "")
         End Select
         Me.DoWhat = emnDoWhat.Unknow
         Me.timMain.Enabled = False
         Me.SetText(Me.FullText)
         Me.tbMain.Text = Me.FullText
+    End Sub
+
+    Private Sub btnClassValue_Click(sender As Object, e As EventArgs) Handles btnClassValue.Click
+        Me.DoWhat = emnDoWhat.GetClassValue
+        Me.Text = "处理" & Me.btnClassValue.Text
+        Me.BeginGet()
     End Sub
 End Class
