@@ -12,6 +12,7 @@
     <RepositoryUrl>https://github.com/PhongSeow/PigCodeHelper/tree/main/Src/DotNet/PigCodeHelperLib</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <Description>A code generation tools.</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

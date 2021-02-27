@@ -84,7 +84,7 @@ Public Class HelperApp
                                 strDataType = oPigFunc.GetStr(strDataType, "", vbLf)
                             End If
                             strDataType = Replace(strDataType, vbCrLf, "")
-                            If InStr(SrcStr, "read-only") > 0 Then bolIsReadOnly = True
+                            If InStr(SrcStr, "read-only") > 0 Or InStr(SrcStr, "Ö»¶Á") > 0 Then bolIsReadOnly = True
                             VB6ObjBrow2VBNetCode_ClassValue = "Public "
                             If bolIsReadOnly = True Then VB6ObjBrow2VBNetCode_ClassValue &= " ReadOnly"
                             VB6ObjBrow2VBNetCode_ClassValue &= " Property " & strSubName & "() As " & strDataType & vbCrLf
@@ -127,6 +127,7 @@ Public Class HelperApp
                             VB6ObjBrow2VBNetCode_ClassValue &= vbTab & "Try" & vbCrLf
                             Do While True
                                 If InStr(strPara, " As ") = 0 Then Exit Do
+                                If Right(strPara, 1) <> " " Then strPara &= " "
                                 Dim strTmp As String = oPigFunc.GetStr(strPara, " As ", " ")
                             Loop
                             strPara = Replace(strPara, "Optional", " ")
@@ -152,6 +153,7 @@ Public Class HelperApp
                             VB6ObjBrow2VBNetCode_ClassValue &= vbTab & "Try" & vbCrLf
                             Do While True
                                 If InStr(strPara, " As ") = 0 Then Exit Do
+                                If Right(strPara, 1) <> " " Then strPara &= " "
                                 Dim strTmp As String = oPigFunc.GetStr(strPara, " As ", " ")
                             Loop
                             strPara = Replace(strPara, "Optional", " ")
